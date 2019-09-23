@@ -1,0 +1,20 @@
+
+<ion-content class="ion-padding" scroll="false">
+  <div id="login-container1" class="creator-container"></div>
+  <h1 id="login-heading1" style="color:#0AB1AC;text-align:center;">Bienvenido a LinguApp</h1>
+  <form id="login-form1" class="list">
+    <ion-list id="login-list1">
+      <label class="item item-input" id="login-input1">
+        <span class="input-label">Email</span>
+        <input [(ngModel)]="user" [ngModelOptions]="{standalone: true}" type="email" placeholder="">
+      </label>
+      <label class="item item-input" id="login-input2">
+        <span class="input-label">Contraseña</span>
+        <input [(ngModel)]="pass" [ngModelOptions]="{standalone: true}" type="password" placeholder="">
+      </label>
+    </ion-list>
+    <div class="spacer" style="height: 40px;"></div>
+    <button id="login-button1" (click) ="login()" style="border-radius:800px 800px 800px 800px;" class="button button-calm button-block">Ingresar</button>
+    <a ui-sref="enrolar()" id="login-button2" class="button button-calm button-block button-clear">si no tienes cuenta enrola!</a>
+  </form>
+</ion-content>
