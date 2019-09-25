@@ -66,4 +66,26 @@ export class ConectorService
       return false;
     }
   }
+session:any
+  public searchSessionById(param_session):any
+  {
+    this.http.get(this.url+"Sesiones/"+param_session,{headers: this.requestHeaders}).subscribe(data => {
+      this.session=data[0].ID;
+      console.log(this.session);
+    }, error => {
+      console.log(error);
+    });
+
+  }
+
+session_data:any
+  public sessionHolder(data):any
+  {
+    this.session_data=data;
+  }
+  
+  public getHoldedSession():any
+  {
+    return this.session;
+  }
 }

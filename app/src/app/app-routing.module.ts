@@ -8,6 +8,10 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'inicio', loadChildren: './inicio/inicio.module#InicioPageModule' },
   { path: 'session-code', loadChildren: './session-code/session-code.module#SessionCodePageModule' },
+  { path: 'level-placer', loadChildren: './level-placer/level-placer.module#LevelPlacerPageModule' },
+  { path: 'enroll', loadChildren: './enroll/enroll.module#EnrollPageModule' },
+  { path: 'configuration', loadChildren: './configuration/configuration.module#ConfigurationPageModule' },
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
 ];
 
 @NgModule({
