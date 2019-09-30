@@ -88,4 +88,19 @@ session_data:any
   {
     return this.session;
   }
+
+  seleccion:any
+  setSeleccion(param_seleccion)
+  { 
+    // Transcripcion = 1
+    // Fonemas       = 2
+    // Grafemas      = 3
+    // Silabas       = 4
+    // Letras        = 5
+    this.seleccion = param_seleccion;
+  }
+  getSeleccion()
+  {
+    return this.seleccion;
+  }
 }

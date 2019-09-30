@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'enroll', loadChildren: './enroll/enroll.module#EnrollPageModule' },
   { path: 'configuration', loadChildren: './configuration/configuration.module#ConfigurationPageModule' },
   { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
+  { path: 'inner-level-placer', loadChildren: './inner-level-placer/inner-level-placer.module#InnerLevelPlacerPageModule' },
 ];
 
 @NgModule({

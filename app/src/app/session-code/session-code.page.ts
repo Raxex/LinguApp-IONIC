@@ -18,9 +18,10 @@ export class SessionCodePage implements OnInit {
   }
   busqueda()
   {
-    if(this.session_id==null)
+    if(this.session_id === undefined)
     {
-      this.conn.presentToast("No has ingresado nada",2);
+      
+      this.presentToast("No has ingresado nada",2);
     }
     else
     {
@@ -29,5 +30,13 @@ export class SessionCodePage implements OnInit {
     }
     
   }
-
+  async presentToast(mesage,time)
+  {
+    let x = time*1000;
+    const toast = await this.toastController.create({
+      message: mesage,
+      duration: x
+    });
+    toast.present();
+  }
 }

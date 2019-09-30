@@ -2,17 +2,17 @@
 <ion-content class="ion-padding" class="has-header">
     <div class="spacer" style="width: 284.333px; height: 25px;"></div>
   <button id="fonTicaFonolGica-button6" style="border-radius:100px 100px 100px 100px;" class="button button-calm button-block">Transcripcion Fonética</button>
-  <button id="fonTicaFonolGica-button21" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block button-outline">Transcripción</button>
+  <button (click)="transcription()" id="fonTicaFonolGica-button21" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block button-outline">Transcripción</button>
   <div class="spacer" style="width: 283px; height: 25px;"></div>
   <button id="fonTicaFonolGica-button7" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block">Transcripción Fonológica</button>
   <div id="fonTicaFonolGica-button-bar1" class="button-bar">
-    <button id="fonTicaFonolGica-button11" style="border-radius:50px 50px 50px 50px;" class="button button-calm button-block button-outline">Fonemas</button>
-    <button id="fonTicaFonolGica-button12" style="border-radius:5000px 5000px 5000px 5000px;" class="button button-calm button-block button-outline">Grafemas</button>
+    <button (click)="fone()" id="fonTicaFonolGica-button11" style="border-radius:50px 50px 50px 50px;" class="button button-calm button-block button-outline">Fonemas</button>
+    <button (click)="grafe()" id="fonTicaFonolGica-button12" style="border-radius:5000px 5000px 5000px 5000px;" class="button button-calm button-block button-outline">Grafemas</button>
   </div>
   <div class="spacer" style="width: 283px; height: 25px;"></div>
   <button id="fonTicaFonolGica-button14" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block">Conciencia Fonológica</button>
   <div id="fonTicaFonolGica-button-bar2" class="button-bar">
-    <button id="fonTicaFonolGica-button19" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block button-outline">Silabas</button>
-    <button id="fonTicaFonolGica-button18" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block button-outline">Letras</button>
+    <button (click)="sil()" id="fonTicaFonolGica-button19" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block button-outline">Silabas</button>
+    <button (click)="letter()" id="fonTicaFonolGica-button18" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block button-outline">Letras</button>
   </div>
 </ion-content>
