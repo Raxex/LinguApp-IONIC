@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'configuration', loadChildren: './configuration/configuration.module#ConfigurationPageModule' },
   { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
   { path: 'inner-level-placer', loadChildren: './inner-level-placer/inner-level-placer.module#InnerLevelPlacerPageModule' },
+  { path: 'ex-fonetic-transcript', loadChildren: './ex-fonetic-transcript/ex-fonetic-transcript.module#ExFoneticTranscriptPageModule' },
 ];
 
 @NgModule({

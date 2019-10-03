@@ -103,4 +103,24 @@ session_data:any
   {
     return this.seleccion;
   }
+
+  level:any
+  excercise:any
+  setLevel(level)
+  {
+    this.level=level;
+  }
+  setExcercise(ex)
+  {
+    this.excercise=ex;
+  }
+  getLevel()
+  {
+    return this.level;
+  }
+  getExcercise()
+  {
+    return this.excercise;
+  }
+
 }
