@@ -18,10 +18,10 @@
   <label>Ejercicios</label>
   <div id="page55-button-bar4" class="button-bar">
     <ion-button (click)="getValue('0','1')" color="success">1</ion-button>
-    <ion-button (click)="getValue('0','2')" color="danger" disabled>2</ion-button>
-    <ion-button (click)="getValue('0','3')" color="danger" disabled>3</ion-button>
-    <ion-button (click)="getValue('0','4')" color="danger" disabled>4</ion-button>
-    <ion-button (click)="getValue('0','5')" color="danger" disabled>5</ion-button>
+    <ion-button [disabled]="!isenabledT1" (click)="getValue('3','2')" color="danger" >2</ion-button>
+    <ion-button [disabled]="!isenabledT2" (click)="getValue('3','3')" color="danger" >3</ion-button>
+    <ion-button [disabled]="!isenabledT3" (click)="getValue('3','4')" color="danger" >4</ion-button>
+    <ion-button [disabled]="!isenabledT4" (click)="getValue('3','5')" color="danger" >5</ion-button>
   </div>
   <div id="page55-button-bar3" class="button-bar"></div>
   <ion-list id="page55-list3">
@@ -35,10 +35,10 @@
   <label>Ejercicios</label>
   <div id="page55-button-bar6" class="button-bar">
     <ion-button (click)="getValue('1','1')" color="success">1</ion-button>
-    <ion-button (click)="getValue('1','2')" color="danger" disabled>2</ion-button>
-    <ion-button (click)="getValue('1','3')" color="danger" disabled>3</ion-button>
-    <ion-button (click)="getValue('1','4')" color="danger" disabled>4</ion-button>
-    <ion-button (click)="getValue('1','5')" color="danger" disabled>5</ion-button>
+    <ion-button [disabled]="!isenabledA1" (click)="getValue('3','2')" color="danger" >2</ion-button>
+    <ion-button [disabled]="!isenabledA2" (click)="getValue('3','3')" color="danger" >3</ion-button>
+    <ion-button [disabled]="!isenabledA3" (click)="getValue('3','4')" color="danger" >4</ion-button>
+    <ion-button [disabled]="!isenabledA4" (click)="getValue('3','5')" color="danger" >5</ion-button>
   </div>
   <ion-list id="page55-list7">
       <ion-item >
@@ -51,10 +51,10 @@
   <label>Ejercicios</label>
   <div id="page55-button-bar7" class="button-bar">
     <ion-button (click)="getValue('2','1')" color="success">1</ion-button>
-    <ion-button (click)="getValue('2','2')" color="danger" disabled>2</ion-button>
-    <ion-button (click)="getValue('2','3')" color="danger" disabled>3</ion-button>
-    <ion-button (click)="getValue('2','4')" color="danger" disabled>4</ion-button>
-    <ion-button (click)="getValue('2','5')" color="danger" disabled>5</ion-button>
+    <ion-button [disabled]="!isenabledB1" (click)="getValue('3','2')" color="danger" >2</ion-button>
+    <ion-button [disabled]="!isenabledB2" (click)="getValue('3','3')" color="danger" >3</ion-button>
+    <ion-button [disabled]="!isenabledB3" (click)="getValue('3','4')" color="danger" >4</ion-button>
+    <ion-button [disabled]="!isenabledB4" (click)="getValue('3','5')" color="danger" >5</ion-button>
   </div>
   <ion-list id="page55-list5">
       <ion-item >
@@ -67,9 +67,9 @@
   <label>Ejercicios</label>
   <div id="page55-button-bar5" class="button-bar">
     <ion-button (click)="getValue('3','1')" color="success">1</ion-button>
-    <ion-button (click)="getValue('3','2')" color="danger" disabled>2</ion-button>
-    <ion-button (click)="getValue('3','3')" color="danger" disabled>3</ion-button>
-    <ion-button (click)="getValue('3','4')" color="danger" disabled>4</ion-button>
-    <ion-button (click)="getValue('3','5')" color="danger" disabled>5</ion-button>
+    <ion-button [disabled]="!isenabledC1" (click)="getValue('3','2')" color="danger" >2</ion-button>
+    <ion-button [disabled]="!isenabledC2" (click)="getValue('3','3')" color="danger" >3</ion-button>
+    <ion-button [disabled]="!isenabledC3" (click)="getValue('3','4')" color="danger" >4</ion-button>
+    <ion-button [disabled]="!isenabledC4" (click)="getValue('3','5')" color="danger" >5</ion-button>
   </div>
 </ion-content>
