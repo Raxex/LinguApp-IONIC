@@ -7,11 +7,15 @@ export class ConectorService
 {
   
   [x: string]: any;
-
   url="http://linguapp.club/api/api/";
   requestHeaders: HttpHeaders;
   dataThread:any
   counter:any
+  session:any
+  level:any
+  excercise:any
+  seleccion:any
+  session_data:any
   
   constructor(public http:HttpClient) { }
   
@@ -27,11 +31,8 @@ export class ConectorService
 
   async presentToast(mesage,time)
   {
-    let x = time*1000;
-    const toast = await this.toastController.create({
-      message: mesage,
-      duration: x
-    });
+    let x = time * 1000;
+    const toast = await this.toastController.create({message: mesage,duration: x});
     toast.present();
   }
 
@@ -66,7 +67,7 @@ export class ConectorService
       return false;
     }
   }
-session:any
+
   public searchSessionById(param_session):any
   {
     this.http.get(this.url+"Sesiones/"+param_session,{headers: this.requestHeaders}).subscribe(data => {
@@ -75,10 +76,8 @@ session:any
     }, error => {
       console.log(error);
     });
-
   }
 
-session_data:any
   public sessionHolder(data):any
   {
     this.session_data=data;
@@ -89,7 +88,6 @@ session_data:any
     return this.session;
   }
 
-  seleccion:any
   setSeleccion(param_seleccion)
   { 
     // Transcripcion = 1
@@ -99,25 +97,27 @@ session_data:any
     // Letras        = 5
     this.seleccion = param_seleccion;
   }
+
   getSeleccion()
   {
     return this.seleccion;
   }
 
-  level:any
-  excercise:any
   setLevel(level)
   {
     this.level=level;
   }
+
   setExcercise(ex)
   {
     this.excercise=ex;
   }
+
   getLevel()
   {
     return this.level;
   }
+  
   getExcercise()
   {
     return this.excercise;
