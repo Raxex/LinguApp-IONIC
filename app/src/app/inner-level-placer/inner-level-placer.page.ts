@@ -63,4 +63,6 @@ export class InnerLevelPlacerPage implements OnInit {
       this.router.navigate(['/ex-fonetic-transcript']);
     }
   }
+
+  
 }
