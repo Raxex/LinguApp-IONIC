@@ -34,7 +34,10 @@ export class InnerLevelPlacerPage implements OnInit {
   
   ngOnInit() {
   }
-
+  getSessionData()
+  {
+    
+  }
   getLastExcercice(last)
   {
     switch (last) {
@@ -50,7 +53,6 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledT3=true;
         this.isenabledT4=true;
       break;
-      
       case "A1":
         this.isenabledT2=true;
         this.isenabledT3=true;
