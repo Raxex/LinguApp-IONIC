@@ -16,6 +16,7 @@ export class ConectorService
   excercise:any
   seleccion:any
   session_data:any
+  user_id:any
   
   constructor(public http:HttpClient) { }
   
@@ -47,6 +48,8 @@ export class ConectorService
     let datax=JSON.stringify( { USER: user, PASS: pass } );
     this.http.post(this.url+"Login",datax,{headers: this.requestHeaders}).subscribe(data => {
       this.dataThread=data;
+      this.user_id = this.dataThread[0]['ID'];
+      console.log("user ->"+this.user_id);
     }, error => {
       console.log(error);
       return false;
@@ -75,6 +78,20 @@ export class ConectorService
       console.log(this.session);
     }, error => {
       console.log(error);
+    });
+  }
+
+  public getLastEx(user,session)
+  {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { USUARIO_ID: user, SESION_ID: session } );
+    this.http.post(this.url+"Login",datax,{headers: this.requestHeaders}).subscribe(data => {
+      this.dataThread=data;
+      this.user_id = this.dataThread[0]['ID'];
+      
+    }, error => {
+      console.log(error);
+      return false;
     });
   }
 
@@ -121,6 +138,10 @@ export class ConectorService
   getExcercise()
   {
     return this.excercise;
+  }
+  getUserID()
+  {
+    return this.user_id;
   }
 
 }

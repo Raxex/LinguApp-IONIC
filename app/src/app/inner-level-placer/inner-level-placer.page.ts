@@ -36,6 +36,9 @@ export class InnerLevelPlacerPage implements OnInit {
   }
   getSessionData()
   {
+    //getLastEx
+    let user = this.conn.getUserID();
+    let session = this.conn.getHoldedSession();
     
   }
   getLastExcercice(last)
