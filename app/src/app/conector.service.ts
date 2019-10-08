@@ -17,6 +17,7 @@ export class ConectorService
   seleccion:any
   session_data:any
   user_id:any
+  lastEx:any
   
   constructor(public http:HttpClient) { }
   
@@ -85,9 +86,8 @@ export class ConectorService
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
     let datax=JSON.stringify( { USUARIO_ID: user, SESION_ID: session } );
-    this.http.post(this.url+"Login",datax,{headers: this.requestHeaders}).subscribe(data => {
-      this.dataThread=data;
-      this.user_id = this.dataThread[0]['ID'];
+    this.http.post(this.url+"getLastEx",datax,{headers: this.requestHeaders}).subscribe(data => {
+      this.lastEx=data[0].ULTIMO_EJERCICIO;
       
     }, error => {
       console.log(error);
@@ -144,4 +144,8 @@ export class ConectorService
     return this.user_id;
   }
 
+  getLastExercice()
+  {
+    return this.lastEx;
+  }
 }

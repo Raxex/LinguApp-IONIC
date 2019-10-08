@@ -10,7 +10,16 @@ import { ToastController } from '@ionic/angular';
 })
 export class InnerLevelPlacerPage implements OnInit {
 
-  constructor(public conn:ConectorService,private router: Router,public toastController: ToastController) { }
+  constructor(public conn:ConectorService,private router: Router,public toastController: ToastController)
+  { 
+    let user = this.conn.getUserID();
+    let session = this.conn.getHoldedSession();
+    this.conn.getLastEx(user,session);
+    this.conn.getLastEx(user,session);
+    this.conn.wait(2);
+    console.log("dick -> -> ->"+this.conn.getLastExercice())
+    this.getLastExcercice(this.conn.getLastExercice());
+  }
   
   isenabledT1:boolean = false; //Tutorial 2
   isenabledT2:boolean = false; //Tutorial 3
@@ -33,14 +42,9 @@ export class InnerLevelPlacerPage implements OnInit {
   isenabledC4:boolean = false; //Nivel 3 - Ejercicio 5
   
   ngOnInit() {
-  }
-  getSessionData()
-  {
-    //getLastEx
-    let user = this.conn.getUserID();
-    let session = this.conn.getHoldedSession();
     
   }
+ 
   getLastExcercice(last)
   {
     switch (last) {
@@ -60,8 +64,6 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
-
-        this.isenabledA1=true;
       break;
       case "A2":
         this.isenabledT2=true;
