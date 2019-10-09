@@ -15,9 +15,9 @@ export class InnerLevelPlacerPage implements OnInit {
     let user = this.conn.getUserID();
     let session = this.conn.getHoldedSession();
     this.conn.getLastEx(user,session);
-    this.conn.getLastEx(user,session);
+    
     this.conn.wait(2);
-    console.log("dick -> -> ->"+this.conn.getLastExercice())
+    console.log("dick -> -> ->"+this.conn.getLastExercice());
     this.getLastExcercice(this.conn.getLastExercice());
   }
   
@@ -49,23 +49,28 @@ export class InnerLevelPlacerPage implements OnInit {
   {
     switch (last) {
       case "T2":
+        this.isenabledT1=true;
         this.isenabledT2=true;
       break;
       case "T3":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
       break;
       case "T4":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
       break;
       case "A1":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
       break;
       case "A2":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -74,6 +79,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledA2=true;
       break;
       case "A3":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -83,6 +89,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledA3=true;
       break;
       case "A4":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -93,6 +100,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledA4=true;
       break;
       case "B1":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -105,6 +113,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledB1=true;
       break;
       case "B2":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -118,6 +127,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledB2=true;
       break;
       case "B3":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -132,6 +142,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledB3=true;
       break;
       case "B4":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -147,6 +158,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledB4=true;
       break;
       case "C1":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -164,6 +176,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledC1=true;
       break;
       case "C2":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -182,6 +195,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledC2=true;
       break;
       case "C3":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
@@ -201,6 +215,7 @@ export class InnerLevelPlacerPage implements OnInit {
         this.isenabledC3=true;
       break;
       case "C4":
+        this.isenabledT1=true;
         this.isenabledT2=true;
         this.isenabledT3=true;
         this.isenabledT4=true;
