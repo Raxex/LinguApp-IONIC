@@ -23,7 +23,15 @@ export class LoginPage implements OnInit {
 
   async login()
   {
-    this.data=this.conn.login(this.user,this.pass);
+    this.conn.presentToast("logueando",2);
+    this.data= this.conn.login(this.user,this.pass);
+    this.conn.presentToast("Cargando",0.5);
+    this.conn.presentToast("Cargando.",0.5);
+    this.conn.presentToast("Cargando..",0.5);
+    this.conn.presentToast("Cargando...",0.5);
+    console.log("ya capture los datos");
+    this.conn.wait(3);
+    console.log("estoy haciendo el wait");
     if(this.data==true)
     {
       this.router.navigate(['/inicio']);

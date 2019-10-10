@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({providedIn: 'root'})
 
@@ -19,7 +20,7 @@ export class ConectorService
   user_id:any
   lastEx:any
   
-  constructor(public http:HttpClient) { }
+  constructor(public http:HttpClient,public toastController: ToastController) { }
   
   public wait(ms)
   {
@@ -45,16 +46,18 @@ export class ConectorService
 
   public login(user,pass):any
   {
+    
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
     let datax=JSON.stringify( { USER: user, PASS: pass } );
+    
     this.http.post(this.url+"Login",datax,{headers: this.requestHeaders}).subscribe(data => {
       this.dataThread=data;
       this.user_id = this.dataThread[0]['ID'];
-      console.log("user ->"+this.user_id);
     }, error => {
       console.log(error);
       return false;
     });
+
     if(this.isset(this.dataThread.length))
     {
       if(this.dataThread.length>0)
