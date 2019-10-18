@@ -23,4 +23,7 @@ const routes: Routes = [
   ],
   declarations: [ExFoneticTranscriptPage]
 })
-export class ExFoneticTranscriptPageModule {}
+export class ExFoneticTranscriptPageModule
+{
+  
+}
