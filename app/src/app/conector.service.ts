@@ -151,4 +151,10 @@ export class ConectorService
   {
     return this.lastEx;
   }
+
+  letterChosser()
+  {
+    
+  }
+
 }
