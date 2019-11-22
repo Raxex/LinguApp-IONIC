@@ -44,37 +44,51 @@ export class ConectorService
      return typeof ref !== 'undefined' 
   }
 
-  public login(user,pass):any
+  public lsogin(user,pass):any
   {
-    
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
     let datax=JSON.stringify( { USER: user, PASS: pass } );
     
     this.http.post(this.url+"Login",datax,{headers: this.requestHeaders}).subscribe(data => {
       this.dataThread=data;
       this.user_id = this.dataThread[0]['ID'];
+      return true;
     }, error => {
       console.log(error);
       return false;
     });
+    
+  }
 
-    if(this.isset(this.dataThread.length))
-    {
-      if(this.dataThread.length>0)
+  public login(user,pass)
+  {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { USER: user, PASS: pass } );
+    let res;
+    let login = new Promise((resolve, reject) => {
+      this.http.post(this.url+"Login", datax,{headers: this.requestHeaders})
+      .toPromise()
+      .then((response) =>
+      {
+        res = response[0];
+        console.log(response);
+        if(response[length]>0)
         {
           return true;
         }
-        else
-        {
-          return false;
-        }
-    }
-    else
-    {
-      return false;
-    }
+      })
+      .catch((error) =>
+      {
+        console.error('API Error : ', error.status);
+        console.error('API Error : ', JSON.stringify(error));
+        reject(error.json());
+      });
+    });
   }
-
+  doreturn()
+  {
+    return true;
+  }
   public searchSessionById(param_session):any
   {
     this.http.get(this.url+"Sesiones/"+param_session,{headers: this.requestHeaders}).subscribe(data => {
@@ -184,5 +198,35 @@ export class ConectorService
     return this.ex_list;
   }
 
-
+  async presentLoading()
+  {
+    const loading     = document.createElement('ion-loading');
+    loading.message   = 'Cargando';
+    loading.duration  = 3000;
+  
+    document.body.appendChild(loading);
+    await loading.present();
+    
+    const { role, data } = await loading.onDidDismiss();
+    return true;
+  }
+  
+  retry()
+  {
+    if(this.isset(this.user_id))
+    {
+      if(this.user_id)
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+    }
+    else
+    {
+      return false;
+    }
+  }
 }

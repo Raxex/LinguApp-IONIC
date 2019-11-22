@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ConectorService } from '../conector.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-inner-level-placer',
   templateUrl: './inner-level-placer.page.html',
   styleUrls: ['./inner-level-placer.page.scss'],
 })
-export class InnerLevelPlacerPage implements OnInit {
-
-  constructor(public conn:ConectorService,private router: Router,public toastController: ToastController)
+export class InnerLevelPlacerPage implements OnInit
+{
+  url="http://linguapp.club/api/api/";
+  constructor(public conn:ConectorService,private router: Router,public toastController: ToastController,public http:HttpClient)
   { 
     let user = this.conn.getUserID();
     let session = this.conn.getHoldedSession();
@@ -39,7 +41,7 @@ export class InnerLevelPlacerPage implements OnInit {
   isenabledC2:boolean = false; //Nivel 3 - Ejercicio 
   isenabledC3:boolean = false; //Nivel 3 - Ejercicio 4
   isenabledC4:boolean = false; //Nivel 3 - Ejercicio 5
-  
+  requestHeaders:any
   ngOnInit() {
     
   }
@@ -258,9 +260,59 @@ export class InnerLevelPlacerPage implements OnInit {
   }
   setter(lvl,ex)
   {
-    this.conn.setLevel(lvl);
-    this.conn.setExcercise(ex);
-    let lista = this.conn.prefix_ex_list(this.conn.getHoldedSession(),lvl);
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: lvl } );
+
+    let login = new Promise((resolve, reject) => {
+      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      .toPromise()
+      .then(async (response) =>
+      {
+        let res = response[0];
+        await this.conn.presentLoading();
+        console.log(response);
+        // if(response)
+        // {
+        //   if(response[0]["ACTIVO"]==0)
+        //   {
+        //     this.conn.presentToast("Estas bloqueado del sistema, contacta al administrador",2);
+        //   }
+        //   else if(response[0]["ACTIVO"]==1)
+        //   {
+        //     this.conn.presentToast("Bienvenid@ "+response[0]["NOMBRE"]+" !",2);
+        //     this.router.navigate(['/inicio']);
+        //   }
+        // }
+        // else
+        // {
+        //   if(response[length]>0)
+        //   {
+        //     this.conn.presentToast("No has podido Logearte :c",2);
+        //   }
+        // }
+      })
+      .catch((error) =>
+      {
+        console.error('API Error : ', error.status);
+        console.error('API Error : ', JSON.stringify(error));
+        reject(error.json());
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     console.log(lista);
     if(this.conn.getSeleccion()==1)
     {
