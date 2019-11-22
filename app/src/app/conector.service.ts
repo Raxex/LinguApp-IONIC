@@ -157,4 +157,32 @@ export class ConectorService
     
   }
 
+  lista_de_ejercicios:any
+
+  getLista_de_ejercicios()
+  {
+    return this.lista_de_ejercicios;
+  }
+
+  setLista_de_ejercicios(item)
+  {
+    this.lista_de_ejercicios = item ;
+  }
+
+  ex_list:any
+  prefix_ex_list(session,level)
+  {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { SESION: session, LEVEL: level } );
+    
+    this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel",datax,{headers: this.requestHeaders}).subscribe(data => {
+      this.ex_list=data;
+    }, error => {
+      console.log(error);
+      return false;
+    });
+    return this.ex_list;
+  }
+
+
 }

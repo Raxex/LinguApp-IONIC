@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ConectorService } from '../conector.service';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-ex-fonetic-transcript',
@@ -7,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExFoneticTranscriptPage implements OnInit {
 
-  constructor() { }
-
+  constructor(public conn:ConectorService,private router: Router,public toastController: ToastController)
+  { 
+    this.getExcercice();
+  }
   ngOnInit() {
   }
   input:any
@@ -73,5 +78,13 @@ export class ExFoneticTranscriptPage implements OnInit {
     img.height = 20;
     img.width  = 20;
     document.getElementById("container").appendChild(img);
+  }
+
+  getExcercice()
+  {
+    let level     = this.conn.getLevel();
+    let session   = this.conn.getHoldedSession();
+    let exercice  = this.conn.getExcercise();
+    console.log("level ->"+level+" - "+"session ->"+session+" - "+"exercice ->"+exercice);
   }
 }

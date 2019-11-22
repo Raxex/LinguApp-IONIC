@@ -15,12 +15,11 @@ export class InnerLevelPlacerPage implements OnInit {
     let user = this.conn.getUserID();
     let session = this.conn.getHoldedSession();
     this.conn.getLastEx(user,session);
-    
     this.conn.wait(2);
-    console.log("dick -> -> ->"+this.conn.getLastExercice());
     this.getLastExcercice(this.conn.getLastExercice());
   }
   
+
   isenabledT1:boolean = false; //Tutorial 2
   isenabledT2:boolean = false; //Tutorial 3
   isenabledT3:boolean = false; //Tutorial 4
@@ -237,7 +236,7 @@ export class InnerLevelPlacerPage implements OnInit {
       break;
     }
   }
-
+ 
   getValue(lvl,ex)
   {
     if(lvl==0)
@@ -261,6 +260,8 @@ export class InnerLevelPlacerPage implements OnInit {
   {
     this.conn.setLevel(lvl);
     this.conn.setExcercise(ex);
+    let lista = this.conn.prefix_ex_list(this.conn.getHoldedSession(),lvl);
+    console.log(lista);
     if(this.conn.getSeleccion()==1)
     {
       this.router.navigate(['/ex-fonetic-transcript']);
