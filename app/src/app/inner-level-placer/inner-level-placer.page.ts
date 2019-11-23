@@ -12,13 +12,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class InnerLevelPlacerPage implements OnInit
 {
   url="http://linguapp.club/api/api/";
+  pack_level_t:any
+  pack_level_1:any
+  pack_level_2:any
+  pack_level_3:any
+  url="http://linguapp.club/api/api/";
   constructor(public conn:ConectorService,private router: Router,public toastController: ToastController,public http:HttpClient)
   { 
-    let user = this.conn.getUserID();
-    let session = this.conn.getHoldedSession();
-    this.conn.getLastEx(user,session);
-    this.conn.wait(2);
-    this.getLastExcercice(this.conn.getLastExercice());
+    let user          = this.conn.getUserID();
+    let session       = this.conn.getHoldedSession();
+    // this.pack_level_t = this.getTutorial();
+    // this.pack_level_1 = this.getLevel1();
+    this.pack_level_2 = this.getLevel2();
+    // this.pack_level_3 = this.getLevel3();
+    // console.log(this.pack_level_2);
+    // this.conn.getLastEx(user,session);
+    // this.conn.wait(2);
+    // this.getLastExcercice(this.conn.getLastExercice());
   }
   
 
@@ -42,7 +52,9 @@ export class InnerLevelPlacerPage implements OnInit
   isenabledC3:boolean = false; //Nivel 3 - Ejercicio 4
   isenabledC4:boolean = false; //Nivel 3 - Ejercicio 5
   requestHeaders:any
-  ngOnInit() {
+
+  ngOnInit()
+  {
     
   }
  
@@ -50,191 +62,191 @@ export class InnerLevelPlacerPage implements OnInit
   {
     switch (last) {
       case "T2":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
       break;
       case "T3":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
       break;
       case "T4":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
       break;
       case "A1":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
       break;
       case "A2":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
       break;
       case "A3":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
       break;
       case "A4":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       break;
       case "B1":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       
-        this.isenabledB1=true;
+        this.isenabledB1 = true;
       break;
       case "B2":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       
-        this.isenabledB1=true;
-        this.isenabledB2=true;
+        this.isenabledB1 = true;
+        this.isenabledB2 = true;
       break;
       case "B3":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       
-        this.isenabledB1=true;
-        this.isenabledB2=true;
-        this.isenabledB3=true;
+        this.isenabledB1 = true;
+        this.isenabledB2 = true;
+        this.isenabledB3 = true;
       break;
       case "B4":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       
-        this.isenabledB1=true;
-        this.isenabledB2=true;
-        this.isenabledB3=true;
-        this.isenabledB4=true;
+        this.isenabledB1 = true;
+        this.isenabledB2 = true;
+        this.isenabledB3 = true;
+        this.isenabledB4 = true;
       break;
       case "C1":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       
-        this.isenabledB1=true;
-        this.isenabledB2=true;
-        this.isenabledB3=true;
-        this.isenabledB4=true;
+        this.isenabledB1 = true;
+        this.isenabledB2 = true;
+        this.isenabledB3 = true;
+        this.isenabledB4 = true;
       
-        this.isenabledC1=true;
+        this.isenabledC1 = true;
       break;
       case "C2":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       
-        this.isenabledB1=true;
-        this.isenabledB2=true;
-        this.isenabledB3=true;
-        this.isenabledB4=true;
+        this.isenabledB1 = true;
+        this.isenabledB2 = true;
+        this.isenabledB3 = true;
+        this.isenabledB4 = true;
       
-        this.isenabledC1=true;
-        this.isenabledC2=true;
+        this.isenabledC1 = true;
+        this.isenabledC2 = true;
       break;
       case "C3":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       
-        this.isenabledB1=true;
-        this.isenabledB2=true;
-        this.isenabledB3=true;
-        this.isenabledB4=true;
+        this.isenabledB1 = true;
+        this.isenabledB2 = true;
+        this.isenabledB3 = true;
+        this.isenabledB4 = true;
       
-        this.isenabledC1=true;
-        this.isenabledC2=true;
-        this.isenabledC3=true;
+        this.isenabledC1 = true;
+        this.isenabledC2 = true;
+        this.isenabledC3 = true;
       break;
       case "C4":
-        this.isenabledT1=true;
-        this.isenabledT2=true;
-        this.isenabledT3=true;
-        this.isenabledT4=true;
+        this.isenabledT1 = true;
+        this.isenabledT2 = true;
+        this.isenabledT3 = true;
+        this.isenabledT4 = true;
 
-        this.isenabledA1=true;
-        this.isenabledA2=true;
-        this.isenabledA3=true;
-        this.isenabledA4=true;
+        this.isenabledA1 = true;
+        this.isenabledA2 = true;
+        this.isenabledA3 = true;
+        this.isenabledA4 = true;
       
-        this.isenabledB1=true;
-        this.isenabledB2=true;
-        this.isenabledB3=true;
-        this.isenabledB4=true;
+        this.isenabledB1 = true;
+        this.isenabledB2 = true;
+        this.isenabledB3 = true;
+        this.isenabledB4 = true;
       
-        this.isenabledC1=true;
-        this.isenabledC2=true;
-        this.isenabledC3=true;
-        this.isenabledC4=true;
+        this.isenabledC1 = true;
+        this.isenabledC2 = true;
+        this.isenabledC3 = true;
+        this.isenabledC4 = true;
       break;
     }
   }
@@ -258,6 +270,7 @@ export class InnerLevelPlacerPage implements OnInit
       this.setter(lvl,ex);
     }
   }
+
   setter(lvl,ex)
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
@@ -313,12 +326,103 @@ export class InnerLevelPlacerPage implements OnInit
 
 
 
-    console.log(lista);
-    if(this.conn.getSeleccion()==1)
-    {
-      this.router.navigate(['/ex-fonetic-transcript']);
-    }
+    //console.log(lista);
+    // if(this.conn.getSeleccion()==1)
+    // {
+    //   this.router.navigate(['/ex-fonetic-transcript']);
+    // }
   }
 
-  
+  getTutorial()
+  {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 0 } );
+
+    let login = new Promise((resolve, reject) => {
+      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      .toPromise()
+      .then(async (response) =>
+      {
+        let res = response[0];
+        await this.conn.presentLoading();
+        console.log(response);
+      })
+      .catch((error) =>
+      {
+        console.error('API Error : ', error.status);
+        console.error('API Error : ', JSON.stringify(error));
+        reject(error.json());
+      });
+    });
+  }
+
+  getLevel1()
+  {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 1 } );
+
+    let login = new Promise((resolve, reject) => {
+      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      .toPromise()
+      .then(async (response) =>
+      {
+        let res = response[0];
+        await this.conn.presentLoading();
+        console.log(response);
+      })
+      .catch((error) =>
+      {
+        console.error('API Error : ', error.status);
+        console.error('API Error : ', JSON.stringify(error));
+        reject(error.json());
+      });
+    });
+  }
+
+  getLevel2()
+  {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 2 } );
+
+    let login = new Promise((resolve, reject) => {
+      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      .toPromise()
+      .then(async (response) =>
+      {
+        let res = response[0];
+        await this.conn.presentLoading();
+        console.log(response);
+      })
+      .catch((error) =>
+      {
+        console.error('API Error : ', error.status);
+        console.error('API Error : ', JSON.stringify(error));
+        reject(error.json());
+      });
+    });
+  }
+
+  getLevel3()
+  {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 3 } );
+
+    let login = new Promise((resolve, reject) => {
+      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      .toPromise()
+      .then(async (response) =>
+      {
+        let res = response[0];
+        await this.conn.presentLoading();
+        console.log(response);
+      })
+      .catch((error) =>
+      {
+        console.error('API Error : ', error.status);
+        console.error('API Error : ', JSON.stringify(error));
+        reject(error.json());
+      });
+    });
+  }
+
 }
