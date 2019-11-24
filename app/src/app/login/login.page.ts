@@ -13,7 +13,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginPage implements OnInit {
   requestHeaders: any;
-  url="http://linguapp.club/api/api/";
+  url="http://185.224.138.156/api/api/";
 
   constructor(public conn:ConectorService,private router: Router,public http:HttpClient,public toastController: ToastController) { }
 

@@ -8,7 +8,7 @@ export class ConectorService
 {
   
   [x: string]: any;
-  url="http://linguapp.club/api/api/";
+  url=this.getUserID();
   requestHeaders: HttpHeaders;
   dataThread:any
   counter:any
@@ -30,6 +30,11 @@ export class ConectorService
     {
       end = new Date().getTime();
     }
+  }
+
+  getURL()
+  {
+    return "http://185.224.138.156/api/api/";
   }
 
   async presentToast(mesage,time)

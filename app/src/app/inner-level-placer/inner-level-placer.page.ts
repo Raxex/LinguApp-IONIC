@@ -11,18 +11,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class InnerLevelPlacerPage implements OnInit
 {
-  url="http://linguapp.club/api/api/";
+  
   pack_level_t:any
   pack_level_1:any
   pack_level_2:any
   pack_level_3:any
   url="http://linguapp.club/api/api/";
+
   constructor(public conn:ConectorService,private router: Router,public toastController: ToastController,public http:HttpClient)
   { 
     let user          = this.conn.getUserID();
     let session       = this.conn.getHoldedSession();
     // this.pack_level_t = this.getTutorial();
-    // this.pack_level_1 = this.getLevel1();
+    // this.pack_level_1 = this.getLevel1(); 
     this.pack_level_2 = this.getLevel2();
     // this.pack_level_3 = this.getLevel3();
     // console.log(this.pack_level_2);
