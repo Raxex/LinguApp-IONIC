@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastController } from '@ionic/angular';
+import { EnviromentService } from './enviroment.service';
 
 @Injectable({providedIn: 'root'})
 
@@ -8,7 +9,6 @@ export class ConectorService
 {
   
   [x: string]: any;
-  url=this.getUserID();
   requestHeaders: HttpHeaders;
   dataThread:any
   counter:any
@@ -20,7 +20,7 @@ export class ConectorService
   user_id:any
   lastEx:any
   
-  constructor(public http:HttpClient,public toastController: ToastController) { }
+  constructor(public env:EnviromentService,public http:HttpClient,public toastController: ToastController) { }
   
   public wait(ms)
   {
@@ -30,11 +30,6 @@ export class ConectorService
     {
       end = new Date().getTime();
     }
-  }
-
-  getURL()
-  {
-    return "http://185.224.138.156/api/api/";
   }
 
   async presentToast(mesage,time)
@@ -54,7 +49,7 @@ export class ConectorService
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
     let datax=JSON.stringify( { USER: user, PASS: pass } );
     
-    this.http.post(this.url+"Login",datax,{headers: this.requestHeaders}).subscribe(data => {
+    this.http.post(this.env.getUrl()+"Login",datax,{headers: this.requestHeaders}).subscribe(data => {
       this.dataThread=data;
       this.user_id = this.dataThread[0]['ID'];
       return true;
@@ -71,7 +66,7 @@ export class ConectorService
     let datax=JSON.stringify( { USER: user, PASS: pass } );
     let res;
     let login = new Promise((resolve, reject) => {
-      this.http.post(this.url+"Login", datax,{headers: this.requestHeaders})
+      this.http.post(this.env.getUrl()+"Login", datax,{headers: this.requestHeaders})
       .toPromise()
       .then((response) =>
       {
@@ -94,11 +89,23 @@ export class ConectorService
   {
     return true;
   }
-  public searchSessionById(param_session):any
+  public async searchSessionById(param_session):Promise<any>
   {
-    this.http.get(this.url+"Sesiones/"+param_session,{headers: this.requestHeaders}).subscribe(data => {
-      this.session=data[0].ID;
-      console.log(this.session);
+    this.http.get(this.env.getUrl()+"Sesiones/"+param_session,{headers: this.requestHeaders}).subscribe(async data => {
+      
+      if(data[0] === undefined)
+      {
+        this.presentToast("no se han encontrado sesiones con ese codigo",3);
+        this.session = null;
+        return this.session;
+      }
+      else
+      {
+        console.log("wena perronga");
+        this.session = data[0].ID;
+        return this.session;
+      }
+      
     }, error => {
       console.log(error);
     });
@@ -108,7 +115,7 @@ export class ConectorService
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
     let datax=JSON.stringify( { USUARIO_ID: user, SESION_ID: session } );
-    this.http.post(this.url+"getLastEx",datax,{headers: this.requestHeaders}).subscribe(data => {
+    this.http.post(this.env.getUrl()+"getLastEx",datax,{headers: this.requestHeaders}).subscribe(data => {
       this.lastEx=data[0].ULTIMO_EJERCICIO;
       
     }, error => {
@@ -194,7 +201,7 @@ export class ConectorService
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
     let datax=JSON.stringify( { SESION: session, LEVEL: level } );
     
-    this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel",datax,{headers: this.requestHeaders}).subscribe(data => {
+    this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel",datax,{headers: this.requestHeaders}).subscribe(data => {
       this.ex_list=data;
     }, error => {
       console.log(error);

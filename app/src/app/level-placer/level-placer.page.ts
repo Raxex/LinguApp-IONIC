@@ -3,6 +3,7 @@ import { ConectorService } from '../conector.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EnviromentService } from '../enviroment.service';
 
 @Component({
   selector: 'app-level-placer',
@@ -14,7 +15,7 @@ export class LevelPlacerPage implements OnInit {
   session_id:any
   requestHeaders: HttpHeaders;
   url: string;
-  constructor(public conn:ConectorService,private router: Router,public toastController: ToastController,public http:HttpClient)
+  constructor(public env:EnviromentService,public conn:ConectorService,private router: Router,public toastController: ToastController,public http:HttpClient)
   {
      this.session_id = this.conn.getHoldedSession();
      
@@ -63,7 +64,7 @@ export class LevelPlacerPage implements OnInit {
     let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 0 } );
 
     let login = new Promise((resolve, reject) => {
-      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
       .toPromise()
       .then(async (response) =>
       {
@@ -86,7 +87,7 @@ export class LevelPlacerPage implements OnInit {
     let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 1 } );
 
     let login = new Promise((resolve, reject) => {
-      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
       .toPromise()
       .then(async (response) =>
       {
@@ -109,7 +110,7 @@ export class LevelPlacerPage implements OnInit {
     let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 2 } );
 
     let login = new Promise((resolve, reject) => {
-      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
       .toPromise()
       .then(async (response) =>
       {
@@ -132,7 +133,7 @@ export class LevelPlacerPage implements OnInit {
     let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 3 } );
 
     let login = new Promise((resolve, reject) => {
-      this.http.post(this.url+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
+      this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
       .toPromise()
       .then(async (response) =>
       {

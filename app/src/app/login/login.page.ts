@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { ConectorService } from '../conector.service';
 import { Router } from '@angular/router';
@@ -6,6 +7,7 @@ import { ToastController } from '@ionic/angular';
 import { WebDriverLogger } from 'blocking-proxy/built/lib/webdriver_logger';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EnviromentService } from '../enviroment.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,9 +15,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginPage implements OnInit {
   requestHeaders: any;
-  url="http://185.224.138.156/api/api/";
 
-  constructor(public conn:ConectorService,private router: Router,public http:HttpClient,public toastController: ToastController) { }
+  constructor(public env:EnviromentService ,public conn:ConectorService,private router: Router,public http:HttpClient,public toastController: ToastController) { }
 
   ngOnInit() {
   }
@@ -31,7 +32,7 @@ export class LoginPage implements OnInit {
     let datax=JSON.stringify( { USER: this.user, PASS: this.pass } );
     let res;
     let login = new Promise((resolve, reject) => {
-      this.http.post(this.url+"Login", datax,{headers: this.requestHeaders})
+      this.http.post(this.env.getUrl()+"Login", datax,{headers: this.requestHeaders})
       .toPromise()
       .then(async (response) =>
       {
