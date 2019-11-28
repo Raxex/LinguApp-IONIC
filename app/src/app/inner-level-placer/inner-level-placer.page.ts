@@ -13,10 +13,10 @@ import { EnviromentService } from '../enviroment.service';
 export class InnerLevelPlacerPage implements OnInit
 {
   
-  pack_level_t:any
-  pack_level_1:any
-  pack_level_2:any
-  pack_level_3:any
+  pack_level_t = [];
+  pack_level_1 = [];
+  pack_level_2 = [];
+  pack_level_3 = [];
   
 
   constructor(public env:EnviromentService,public conn:ConectorService,private router: Router,public toastController: ToastController,public http:HttpClient)
@@ -259,25 +259,28 @@ export class InnerLevelPlacerPage implements OnInit
   {
     if(lvl==0)
     {
+      this.pack_level_t[ex];
       this.setter(lvl,ex);
     }
     else if(lvl==1)
     {
+      this.pack_level_1[ex];
       this.setter(lvl,ex);
     }
     else if(lvl==2)
     {
+      this.pack_level_2[ex];
       this.setter(lvl,ex);
     }
     else if(lvl==3)
     {
+      this.pack_level_3[ex];
       this.setter(lvl,ex);
     }
   }
 
   setter(lvl,ex)
   {
-    
   }
 
   getTutorial()
@@ -290,14 +293,11 @@ export class InnerLevelPlacerPage implements OnInit
       .toPromise()
       .then(async (response) =>
       {
-        
-        for(let i = 0; i < response[length]; i++)
+        for(let i = 0; i < response["length"]; i++)
         {
-          console.log(response[i]["EJERCICIO_ID"]);
+          this.pack_level_t.push(response[i].EJERCICIO_ID);
         }
-        let res = response[0];
         await this.conn.presentLoading();
-        console.log(response[length]);
       })
       .catch((error) =>
       {
@@ -318,9 +318,11 @@ export class InnerLevelPlacerPage implements OnInit
       .toPromise()
       .then(async (response) =>
       {
-        let res = response[0];
+        for(let i = 0; i < response["length"]; i++)
+        {
+          this.pack_level_1.push(response[i].EJERCICIO_ID);
+        }
         await this.conn.presentLoading();
-        console.log(response);
       })
       .catch((error) =>
       {
@@ -341,14 +343,11 @@ export class InnerLevelPlacerPage implements OnInit
       .toPromise()
       .then(async (response) =>
       {
-        console.log(response[length]);
-        for(let i = 0; i < response[length]; i++)
+        for(let i = 0; i < response["length"]; i++)
         {
-          console.log(response[i].EJERCICIO_ID);
+          this.pack_level_2.push(response[i].EJERCICIO_ID);
         }
-        let res = response[0];
         await this.conn.presentLoading();
-        console.log(response[length]);
       })
       .catch((error) =>
       {
@@ -369,9 +368,11 @@ export class InnerLevelPlacerPage implements OnInit
       .toPromise()
       .then(async (response) =>
       {
-        let res = response[0];
+        for(let i = 0; i < response["length"]; i++)
+        {
+          this.pack_level_3.push(response[i].EJERCICIO_ID);
+        }
         await this.conn.presentLoading();
-        console.log(response);
       })
       .catch((error) =>
       {
