@@ -29,6 +29,7 @@ export class SessionCodePage implements OnInit {
     {
       this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
       this.http.get(this.env.getUrl()+"Sesiones/"+this.session_id,{headers: this.requestHeaders}).subscribe(async data => {
+        
         await this.conn.presentLoading();
         if(data[0] === undefined)
         {
