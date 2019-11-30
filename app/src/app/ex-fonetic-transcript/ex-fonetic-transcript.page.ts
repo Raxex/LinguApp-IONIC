@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ConectorService } from '../conector.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { WebDriverLogger } from 'blocking-proxy/built/lib/webdriver_logger';
+import { EnviromentService } from '../enviroment.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-ex-fonetic-transcript',
@@ -9,10 +13,13 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./ex-fonetic-transcript.page.scss'],
 })
 export class ExFoneticTranscriptPage implements OnInit {
+  requestHeaders: HttpHeaders;
+  session_id: string;
 
-  constructor(public conn:ConectorService,private router: Router,public toastController: ToastController)
+  constructor(public env:EnviromentService,public conn:ConectorService,public http:HttpClient,private router: Router,public toastController: ToastController)
   { 
-    this.getExcercice();
+
+    this.getExcercice(this.conn.getHoldedExcercice());
   }
   ngOnInit() {
   }
@@ -80,11 +87,24 @@ export class ExFoneticTranscriptPage implements OnInit {
     document.getElementById("container").appendChild(img);
   }
 
-  getExcercice()
+  getExcercice(ex)
   {
-    let level     = this.conn.getLevel();
-    let session   = this.conn.getHoldedSession();
-    let exercice  = this.conn.getExcercise();
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+      this.http.get(this.env.getUrl()+"Ejercicios/"+ex,{headers: this.requestHeaders}).subscribe(async data => {
+        
+        await this.conn.presentLoading();
+        if(data[0] === undefined)
+        {
+          this.conn.presentToast("no se ha encontrado el ejercicio...",3);
+          this.conn.presentToast("raro ,verdad?... consulta a tu administrador ( codigo de bug -> 852 )",3);
+        }
+        else
+        {
+          
+        }
+      }, error => {
+        console.log(error);
+      });
     console.log("level ->"+level+" - "+"session ->"+session+" - "+"exercice ->"+exercice);
   }
 }

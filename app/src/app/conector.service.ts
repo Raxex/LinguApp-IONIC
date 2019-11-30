@@ -222,7 +222,16 @@ export class ConectorService
     const { role, data } = await loading.onDidDismiss();
     return true;
   }
-  
+  selectedEx :any;
+  holdExcercice(exer)
+  {
+    this.selectedEx = exer;
+  }
+  getHoldedExcercice()
+  {
+    return this.selectedEx;
+  }
+
   retry()
   {
     if(this.isset(this.user_id))
