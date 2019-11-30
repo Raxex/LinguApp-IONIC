@@ -30,7 +30,7 @@ export class ExFoneticTranscriptPage implements OnInit {
   stimulus:any // url
   answer:any   // respuesta
 
-    pack1s=[
+  pack1s=[
       '../../assets/keyboard/3.png',
       '../../assets/keyboard/6volteado.png',
       '../../assets/keyboard/Dmayuscula.png',
@@ -40,7 +40,8 @@ export class ExFoneticTranscriptPage implements OnInit {
       '../../assets/keyboard/b.png',
       '../../assets/keyboard/bmayuscula.png',
       '../../assets/keyboard/bt.png'
-    ];
+  
+  ];
   pack2s=[
       '../../assets/keyboard/d3.png',
       '../../assets/keyboard/d_.png',
@@ -51,7 +52,7 @@ export class ExFoneticTranscriptPage implements OnInit {
       '../../assets/keyboard/h.png',
       '../../assets/keyboard/i.png',
       '../../assets/keyboard/irara.png'
-    ];
+  ];
   pack3s=[
       '../../assets/keyboard/j.png',        
       '../../assets/keyboard/jn.png',       
@@ -62,7 +63,7 @@ export class ExFoneticTranscriptPage implements OnInit {
       '../../assets/keyboard/m.png',        
       '../../assets/keyboard/mj.png',       
       '../../assets/keyboard/n.png'         
-    ];
+  ];
   pack4s=[
       '../../assets/keyboard/n_.png',
       '../../assets/keyboard/n__.png',
@@ -73,7 +74,7 @@ export class ExFoneticTranscriptPage implements OnInit {
       '../../assets/keyboard/pareceunajvolteada.png',
       '../../assets/keyboard/r.png',
       '../../assets/keyboard/rbota.png'
-    ];
+  ];
   pack5s=[
       '../../assets/keyboard/s.png',
       '../../assets/keyboard/t_.png',
@@ -83,7 +84,8 @@ export class ExFoneticTranscriptPage implements OnInit {
       '../../assets/keyboard/x.png',
       '../../assets/keyboard/xj.png',
       '../../assets/keyboard/yt.png'
-    ];
+  ];
+
   addLetter(name)
   {
     let img    = document.createElement("img");
