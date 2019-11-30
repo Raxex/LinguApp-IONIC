@@ -7,18 +7,16 @@
 <ion-content class="has-header">
   <div class="spacer" style="width: 284.333px; height: 20px;"></div>
   <div id="222555-button-bar8" id="audio" class="audio">
-      <audio src="https://linguapp.club/Pagina%20admin/uploads/NOPE.mp3" controls class="audio">
-        <p>No se pudo obtener el audio :c</p>
-        </audio>
+    <audio src="{{stimulus}}" controls class="audio">
+      <p>No se pudo obtener el audio :c</p>
+    </audio>  
   </div>
   <div class="spacer" style="width: 284.333px; height: 40px;"></div>
   <div id="222555-container3">
     <div id="rcorners2" class="ion-no-margin">
-      
-          <div class="inner" id="container">
-            
-          </div>
-     
+      <div class="inner" id="container">
+        
+      </div>
     </div>
   </div>
  
@@ -27,16 +25,21 @@
   <div id="222555-button-bar9" class="button-bar" >
     <button *ngFor="let pack1 of pack1s" (click)="addLetter(pack1)" id="222555-button27" class="keyboard" ><img type="image" height="20px" width="20px" src="{{pack1}}" /></button> 
   </div>
+
   <div id="222555-button-bar9" class="button-bar" >
     <button *ngFor="let pack2 of pack2s" (click)="addLetter(pack2)" id="222555-button27" class="keyboard" ><img type="image" height="20px" width="20px" src="{{pack2}}" /></button> 
   </div>
+
   <div id="222555-button-bar9" class="button-bar" >
     <button *ngFor="let pack3 of pack3s" (click)="addLetter(pack3)" id="222555-button27" class="keyboard" ><img type="image" height="20px" width="20px" src="{{pack3}}" /></button> 
   </div>
+
   <div id="222555-button-bar9" class="button-bar" >
     <button *ngFor="let pack4 of pack4s" (click)="addLetter(pack4)" id="222555-button27" class="keyboard" ><img type="image" height="20px" width="20px" src="{{pack4}}" /></button> 
   </div>
+
   <div id="222555-button-bar9" class="button-bar">
     <button  *ngFor="let pack5 of pack5s" (click)="addLetter(pack5)" id="222555-button27" class="keyboard" ><img type="image" height="20px" width="20px" src="{{pack5}}" /></button> 
   </div>
+
 </ion-content>

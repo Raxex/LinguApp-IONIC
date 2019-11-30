@@ -20,10 +20,16 @@ export class ExFoneticTranscriptPage implements OnInit {
   { 
 
     this.getExcercice(this.conn.getHoldedExcercice());
+    
   }
   ngOnInit() {
   }
   input:any
+
+  
+  stimulus:any // url
+  answer:any   // respuesta
+
     pack1s=[
       '../../assets/keyboard/3.png',
       '../../assets/keyboard/6volteado.png',
