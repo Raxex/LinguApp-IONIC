@@ -13,10 +13,10 @@ import { EnviromentService } from '../enviroment.service';
 export class InnerLevelPlacerPage implements OnInit
 {
   
-  pack_level_t = [];
-  pack_level_1 = [];
-  pack_level_2 = [];
-  pack_level_3 = [];
+  pack_level_t :any
+  pack_level_1 :any
+  pack_level_2:any
+  pack_level_3:any
   
 
   constructor(public env:EnviromentService,public conn:ConectorService,private router: Router,public toastController: ToastController,public http:HttpClient)
