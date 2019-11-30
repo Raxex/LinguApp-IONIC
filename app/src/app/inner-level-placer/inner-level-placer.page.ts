@@ -231,224 +231,27 @@ export class InnerLevelPlacerPage implements OnInit
     }
 
   }
-
-  // getLastExcercice1(last) //DEPRECATED
-  // {
-  //   switch (last) {
-  //     case "T2":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //     break;
-  //     case "T3":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //     break;
-  //     case "T4":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-  //     break;
-  //     case "A1":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-  //     break;
-  //     case "A2":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //     break;
-  //     case "A3":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //     break;
-  //     case "A4":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-  //     break;
-  //     case "B1":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-      
-  //       this.isenabledB1 = true;
-  //     break;
-  //     case "B2":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-      
-  //       this.isenabledB1 = true;
-  //       this.isenabledB2 = true;
-  //     break;
-  //     case "B3":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-      
-  //       this.isenabledB1 = true;
-  //       this.isenabledB2 = true;
-  //       this.isenabledB3 = true;
-  //     break;
-  //     case "B4":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-      
-  //       this.isenabledB1 = true;
-  //       this.isenabledB2 = true;
-  //       this.isenabledB3 = true;
-  //       this.isenabledB4 = true;
-  //     break;
-  //     case "C1":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-      
-  //       this.isenabledB1 = true;
-  //       this.isenabledB2 = true;
-  //       this.isenabledB3 = true;
-  //       this.isenabledB4 = true;
-      
-  //       this.isenabledC1 = true;
-  //     break;
-  //     case "C2":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-      
-  //       this.isenabledB1 = true;
-  //       this.isenabledB2 = true;
-  //       this.isenabledB3 = true;
-  //       this.isenabledB4 = true;
-      
-  //       this.isenabledC1 = true;
-  //       this.isenabledC2 = true;
-  //     break;
-  //     case "C3":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-      
-  //       this.isenabledB1 = true;
-  //       this.isenabledB2 = true;
-  //       this.isenabledB3 = true;
-  //       this.isenabledB4 = true;
-      
-  //       this.isenabledC1 = true;
-  //       this.isenabledC2 = true;
-  //       this.isenabledC3 = true;
-  //     break;
-  //     case "C4":
-  //       this.isenabledT1 = true;
-  //       this.isenabledT2 = true;
-  //       this.isenabledT3 = true;
-  //       this.isenabledT4 = true;
-
-  //       this.isenabledA1 = true;
-  //       this.isenabledA2 = true;
-  //       this.isenabledA3 = true;
-  //       this.isenabledA4 = true;
-      
-  //       this.isenabledB1 = true;
-  //       this.isenabledB2 = true;
-  //       this.isenabledB3 = true;
-  //       this.isenabledB4 = true;
-      
-  //       this.isenabledC1 = true;
-  //       this.isenabledC2 = true;
-  //       this.isenabledC3 = true;
-  //       this.isenabledC4 = true;
-  //     break;
-  //   }
-  // }
  
   getValue(lvl,ex)
   {
     if(lvl==0)
     {
-      this.pack_level_t[ex];
-      this.conn.holdExcercice(ex);
+      this.conn.holdExcercice(this.pack_level_t[ex]);
       this.router.navigate(['/ex-fonetic-transcript']);
     }
     else if(lvl==1)
     {
-      this.pack_level_1[ex];
-      this.conn.holdExcercice(ex);
+      this.conn.holdExcercice(this.pack_level_1[ex]);
       this.router.navigate(['/ex-fonetic-transcript']);
     }
     else if(lvl==2)
     {
-      this.pack_level_2[ex];
-      this.conn.holdExcercice(ex);
+      this.conn.holdExcercice(this.pack_level_2[ex]);
       this.router.navigate(['/ex-fonetic-transcript']);
     }
     else if(lvl==3)
     {
-      this.pack_level_3[ex];
-      this.conn.holdExcercice(ex);
+      this.conn.holdExcercice(this.pack_level_3[ex]);
       this.router.navigate(['/ex-fonetic-transcript']);
     }
   }

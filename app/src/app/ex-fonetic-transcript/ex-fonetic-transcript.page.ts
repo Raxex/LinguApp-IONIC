@@ -13,6 +13,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./ex-fonetic-transcript.page.scss'],
 })
 export class ExFoneticTranscriptPage implements OnInit {
+  [x: string]: any;
   requestHeaders: HttpHeaders;
   session_id: string;
 
@@ -26,8 +27,8 @@ export class ExFoneticTranscriptPage implements OnInit {
   }
   input:any
 
-  
-  stimulus:any // url
+  gotten    = false;
+  stimulus  = "http://linguapp.cl/Pagina%20admin/uploads/chewie.mp3";
   answer:any   // respuesta
 
   pack1s=[
@@ -101,18 +102,38 @@ export class ExFoneticTranscriptPage implements OnInit {
       this.http.get(this.env.getUrl()+"Ejercicios/"+ex,{headers: this.requestHeaders}).subscribe(async data => {
         
         await this.conn.presentLoading();
+        console.log("numero de ejercicio -> "+ex);
+        
+        console.log(data[0]);
         if(data[0] === undefined)
         {
           this.conn.presentToast("no se ha encontrado el ejercicio...",3);
           this.conn.presentToast("raro ,verdad?... consulta a tu administrador ( codigo de bug -> 852 )",3);
+          this.gotten = false;
         }
         else
         {
-          
+          console.log(this.env.file_url+data[0].ESTIMULO);
+          this.stimulus = (this.env.file_url+data[0].ESTIMULO);
+          this.answer   = data[0].RESPUESTA_CORRECTA;
+          this.gotten = true;
         }
       }, error => {
         console.log(error);
       });
-    console.log("level ->"+level+" - "+"session ->"+session+" - "+"exercice ->"+exercice);
+  }
+  async getUrlContent()
+  {
+    if(this.gotten)
+    {
+      return this.stimulus;
+    }
+    else
+    {
+      this.getExcercice(this.conn.getHoldedExcercice());
+      await this.conn.presentLoading();
+      return this.stimulus;
+    }
+    
   }
 }

@@ -8,7 +8,7 @@ export class EnviromentService
 
   public url = "http://linguapp.cl/APIConnect/api/";
 
-  public file_url = "http://linguapp.cl/Pagina%20admin/";
+  public file_url = "http://www.linguapp.cl/Pagina%20admin/";
   constructor()
   { 
 

@@ -7,7 +7,7 @@
 <ion-content class="has-header">
   <div class="spacer" style="width: 284.333px; height: 20px;"></div>
   <div id="222555-button-bar8" id="audio" class="audio">
-    <audio src="{{stimulus}}" controls class="audio">
+    <audio [src]="getUrlContent()" controls class="audio">
       <p>No se pudo obtener el audio :c</p>
     </audio>  
   </div>
