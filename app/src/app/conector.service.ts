@@ -44,6 +44,18 @@ export class ConectorService
      return typeof ref !== 'undefined' 
   }
 
+  public presentAlert(header,subheader,message)
+  {
+    const alert = document.createElement('ion-alert');
+    alert.header = header;
+    alert.subHeader = subheader;
+    alert.message = message;
+    alert.buttons = ['OK'];
+  
+    document.body.appendChild(alert);
+    return alert.present();
+  }
+
   public lsogin(user,pass):any
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');

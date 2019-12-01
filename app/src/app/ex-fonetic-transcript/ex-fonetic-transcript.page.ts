@@ -17,13 +17,13 @@ export class ExFoneticTranscriptPage implements OnInit {
   [x: string]: any;
   requestHeaders: HttpHeaders;
   session_id: string;
-
+  date_init:any
+  date_finish:any
   constructor(public env:EnviromentService,public conn:ConectorService,public http:HttpClient,private router: Router,public toastController: ToastController)
   { 
     this.getKeyboard();
     this.getExcercice(this.conn.getHoldedExcercice());
-    
-    
+    this.date_init = Date.now();
   }
   ngOnInit() {
   }
@@ -200,10 +200,20 @@ export class ExFoneticTranscriptPage implements OnInit {
     
   }
 
-
+  errorCount=0;
   sendResponse()
   {
-
+    console.log(this.answer);
+    if(this.imaginaryResponse == this.answer)
+    {
+      this.date_finish = Date.now();
+      this.conn.presentAlert("Correcto!","",'Tu respuesta ha sido correcta');
+    }
+    else
+    {
+      this.errorCount = this.errorCount +1;
+      this.conn.presentAlert("Incorrecto","",'intenta nuevamente');
+    }
   }
 
  
