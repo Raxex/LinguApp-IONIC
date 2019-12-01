@@ -1,3 +1,4 @@
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Component, OnInit } from '@angular/core';
 import { ConectorService } from '../conector.service';
 import { Router } from '@angular/router';
@@ -19,8 +20,9 @@ export class ExFoneticTranscriptPage implements OnInit {
 
   constructor(public env:EnviromentService,public conn:ConectorService,public http:HttpClient,private router: Router,public toastController: ToastController)
   { 
-
+    this.getKeyboard();
     this.getExcercice(this.conn.getHoldedExcercice());
+    
     
   }
   ngOnInit() {
@@ -32,68 +34,129 @@ export class ExFoneticTranscriptPage implements OnInit {
   answer:any   // respuesta
 
   pack1s=[
-      '../../assets/keyboard/3.png',
-      '../../assets/keyboard/6volteado.png',
-      '../../assets/keyboard/Dmayuscula.png',
-      '../../assets/keyboard/OOO.png',
-      '../../assets/keyboard/SS.png',
-      '../../assets/keyboard/a.png',
-      '../../assets/keyboard/b.png',
-      '../../assets/keyboard/bmayuscula.png',
-      '../../assets/keyboard/bt.png'
+      // '../../assets/keyboard/3.png',
+      // '../../assets/keyboard/6volteado.png',
+      // '../../assets/keyboard/Dmayuscula.png',
+      // '../../assets/keyboard/OOO.png',
+      // '../../assets/keyboard/SS.png',
+      // '../../assets/keyboard/a.png',
+      // '../../assets/keyboard/b.png',
+      // '../../assets/keyboard/bmayuscula.png',
+      // '../../assets/keyboard/bt.png'
   
   ];
   pack2s=[
-      '../../assets/keyboard/d3.png',
-      '../../assets/keyboard/d_.png',
-      '../../assets/keyboard/e.png',
-      '../../assets/keyboard/fotra.png',
-      '../../assets/keyboard/g.png',
-      '../../assets/keyboard/gj.png',
-      '../../assets/keyboard/h.png',
-      '../../assets/keyboard/i.png',
-      '../../assets/keyboard/irara.png'
+      // '../../assets/keyboard/d3.png',
+      // '../../assets/keyboard/d_.png',
+      // '../../assets/keyboard/e.png',
+      // '../../assets/keyboard/fotra.png',
+      // '../../assets/keyboard/g.png',
+      // '../../assets/keyboard/gj.png',
+      // '../../assets/keyboard/h.png',
+      // '../../assets/keyboard/i.png',
+      // '../../assets/keyboard/irara.png'
   ];
   pack3s=[
-      '../../assets/keyboard/j.png',        
-      '../../assets/keyboard/jn.png',       
-      '../../assets/keyboard/k.png',        
-      '../../assets/keyboard/kj.png',       
-      '../../assets/keyboard/kmayuscula.png',
-      '../../assets/keyboard/l.png',        
-      '../../assets/keyboard/m.png',        
-      '../../assets/keyboard/mj.png',       
-      '../../assets/keyboard/n.png'         
+      // '../../assets/keyboard/j.png',        
+      // '../../assets/keyboard/jn.png',       
+      // '../../assets/keyboard/k.png',        
+      // '../../assets/keyboard/kj.png',       
+      // '../../assets/keyboard/kmayuscula.png',
+      // '../../assets/keyboard/l.png',        
+      // '../../assets/keyboard/m.png',        
+      // '../../assets/keyboard/mj.png',       
+      // '../../assets/keyboard/n.png'         
   ];
   pack4s=[
-      '../../assets/keyboard/n_.png',
-      '../../assets/keyboard/n__.png',
-      '../../assets/keyboard/nj.png',
-      '../../assets/keyboard/nmayuscula.png',
-      '../../assets/keyboard/o.png',
-      '../../assets/keyboard/p.png',
-      '../../assets/keyboard/pareceunajvolteada.png',
-      '../../assets/keyboard/r.png',
-      '../../assets/keyboard/rbota.png'
+      // '../../assets/keyboard/n_.png',
+      // '../../assets/keyboard/n__.png',
+      // '../../assets/keyboard/nj.png',
+      // '../../assets/keyboard/nmayuscula.png',
+      // '../../assets/keyboard/o.png',
+      // '../../assets/keyboard/p.png',
+      // '../../assets/keyboard/pareceunajvolteada.png',
+      // '../../assets/keyboard/r.png',
+      // '../../assets/keyboard/rbota.png'
   ];
   pack5s=[
-      '../../assets/keyboard/s.png',
-      '../../assets/keyboard/t_.png',
-      '../../assets/keyboard/tf.png',
-      '../../assets/keyboard/u.png',
-      '../../assets/keyboard/w.png',
-      '../../assets/keyboard/x.png',
-      '../../assets/keyboard/xj.png',
-      '../../assets/keyboard/yt.png'
+      // '../../assets/keyboard/s.png',
+      // '../../assets/keyboard/t_.png',
+      // '../../assets/keyboard/tf.png',
+      // '../../assets/keyboard/u.png',
+      // '../../assets/keyboard/w.png',
+      // '../../assets/keyboard/x.png',
+      // '../../assets/keyboard/xj.png',
+      // '../../assets/keyboard/yt.png'
   ];
 
-  addLetter(name)
+  getKeyboard()
   {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    this.http.get(this.env.getUrl()+"Archivos/",{headers: this.requestHeaders}).subscribe(async data => {
+    
+    await this.conn.presentLoading();
+    
+    //console.log(data[0]);
+    if(data[0] === undefined)
+    {
+      this.conn.presentToast("no se ha encontrado el ejercicio...",3);
+      this.conn.presentToast("raro ,verdad?... consulta a tu administrador ( codigo de bug -> 851 )",3);
+      this.gotten = false;
+    }
+    else
+    {
+      for(var index in data)
+      {
+        if(data[index].ID<=9)
+        {
+          this.pack1s.push(data[index]);
+        }
+        else if(data[index].ID<=18)
+        {
+          this.pack2s.push(data[index]);
+        }
+        else if(data[index].ID<=27)
+        {
+          this.pack3s.push(data[index]);
+        }
+        else if(data[index].ID<=36)
+        {
+          this.pack4s.push(data[index]);
+        }
+        else if(data[index].ID<=45)
+        {
+          this.pack5s.push(data[index]);
+        }
+        // this.pack_level_2.push(data[index].EJERCICIO_ID);
+      }
+    }
+  }, error => {
+    console.log(error);
+  });
+
+  }
+  imaginaryResponse = "";
+  addLetter(param)
+  {
+    let src    = '../../assets/'+param.imagen+'.png';
     let img    = document.createElement("img");
-    img.src    = name;
+    img.src    = src;
     img.height = 20;
     img.width  = 20;
     document.getElementById("container").appendChild(img);
+    this.imaginaryResponse = this.imaginaryResponse+param.codigo;
+    console.log(this.imaginaryResponse);
+  }
+
+  del()
+  {
+    this.imaginaryResponse = this.imaginaryResponse.slice(5);
+    let contenedor = document.getElementById("container");
+    let contador = contenedor.childElementCount -1;
+   
+    let nodo = contenedor.childNodes[contador];
+    console.log(nodo);
+    contenedor.removeChild(nodo);
   }
 
   getExcercice(ex)
@@ -136,4 +199,12 @@ export class ExFoneticTranscriptPage implements OnInit {
     }
     
   }
+
+
+  sendResponse()
+  {
+
+  }
+
+ 
 }

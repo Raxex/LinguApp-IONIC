@@ -17,6 +17,8 @@
     text-align: center;
     -o-text-overflow: clip;
     text-overflow: clip;
+    -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+    box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
 }
 .keyboard
 {
@@ -36,7 +38,16 @@
     text-align: center;
     -o-text-overflow: clip;
     text-overflow: clip;
+    -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+    box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
 }
+
+.buttonsHD
+{
+    -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+    box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+}
+
 #rcorners2 {
     border-radius: 50px;
     border: 2px solid rgba(255,153,0,1);
@@ -44,10 +55,23 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 300px;
-    height: 40px;
+    width: 250px;
+    height: 50px;
+    -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+    box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
 }
 #audio{
+    border-radius:800px 800px 800px 800px;
+    border-top: 2px double  #0AB1AC;
+    border-right: 2px double  #0AB1AC;
+    border-bottom: 2px double  #0AB1AC;
+    border-left: 2px double  #0AB1AC;
+    width: 350px;
+    height: 50px;
+    text-align: center;
+    background:#0AB1AC;
+    -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+    box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
     margin-left: auto;
     margin-right: auto;
 }
