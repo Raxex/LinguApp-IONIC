@@ -19,11 +19,19 @@ export class ExFoneticTranscriptPage implements OnInit {
   session_id: string;
   date_init:any
   date_finish:any
+  register:any
+
   constructor(public env:EnviromentService,public conn:ConectorService,public http:HttpClient,private router: Router,public toastController: ToastController)
   { 
     this.getKeyboard();
     this.getExcercice(this.conn.getHoldedExcercice());
     this.date_init = Date.now();
+    
+    if(this.conn.register_id != undefined)
+    {
+      this.conn.addRegister(this.conn.user_id, this.conn.getHoldedSession(), this.conn.getHoldedExcercice());
+    }
+
   }
   ngOnInit() {
   }
@@ -206,11 +214,15 @@ export class ExFoneticTranscriptPage implements OnInit {
     console.log(this.answer);
     if(this.imaginaryResponse == this.answer)
     {
+      console.log("registro =>"+this.conn.register_id);
+      this.conn.finishRegister(this.conn.register_id,this.errorCount);
       this.date_finish = Date.now();
       this.conn.presentAlert("Correcto!","",'Tu respuesta ha sido correcta');
+      this.router.navigate(['/inner-level-placer']);
     }
     else
     {
+
       this.errorCount = this.errorCount +1;
       this.conn.presentAlert("Incorrecto","",'intenta nuevamente');
     }

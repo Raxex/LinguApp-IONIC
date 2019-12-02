@@ -113,7 +113,6 @@ export class ConectorService
       }
       else
       {
-        console.log("wena perronga");
         this.session = data[0].ID;
         return this.session;
       }
@@ -262,4 +261,38 @@ export class ConectorService
       return false;
     }
   }
+
+  register_id:any
+  addRegister(user,session,excercice)
+  {
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax           = JSON.stringify( { USUARIO_ID: user, SESION_ID: session , EJERCICIO: excercice,ULTIMO_EJERCICIO: excercice , HORA_INICIO : new Date().toISOString().slice(0, 19).replace('T', ' ')} );
+    
+    this.http.post(this.env.getUrl()+"Registros",datax,{headers: this.requestHeaders}).subscribe(async data => {
+      this.register_id = data[0].ID;
+      return this.register_id;
+    }, error => {
+      console.log(error);
+      return false;
+    });
+
+  }
+
+  finishRegister(id,errors)
+  {
+    let varx;
+    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
+    let datax=JSON.stringify( { ID: id, RESPUESTAS_ERRONEAS: errors , HORA_FIN: new Date().toISOString().slice(0, 19).replace('T', ' ')} );
+    
+    this.http.put(this.env.getUrl()+"Registros/"+id,datax,{headers: this.requestHeaders}).subscribe(data => {
+      
+      this.presentLoading();
+      return data;
+    }, error => {
+      console.log(error);
+      return false;
+    });
+    
+  }
+
 }

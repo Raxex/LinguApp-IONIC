@@ -47,6 +47,7 @@ export class LoginPage implements OnInit {
           }
           else if(response[0]["ACTIVO"]==1)
           {
+            this.conn.user_id = response[0]["ID"];
             this.conn.presentToast("Bienvenid@ "+response[0]["NOMBRE"]+" !",2);
             this.router.navigate(['/inicio']);
           }
