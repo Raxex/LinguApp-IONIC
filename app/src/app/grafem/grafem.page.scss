@@ -1,11 +1,18 @@
-.tempered_input
-{
-    border-radius:800px 800px 800px 800px;
-    -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
-    box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
-}
-
-
+.ultimate_box {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 100px;
+    border: none;
+    -webkit-border-radius: 63px;
+    border-radius: 63px;
+    text-align: center;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-box-shadow: 4px 4px 6px 3px rgba(211,141,0,1) ;
+    box-shadow: 4px 4px 6px 3px rgba(211,141,0,1) ;
+  }
+  
 .enjoy-css 
 {
     background:white;

@@ -1,24 +1,23 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-button class="md button ion-activatable ion-focusable hydrated" >
-      <ion-icon  name="hammer" ></ion-icon>
-    </ion-button>
-    <ion-title>Identifica tu Sesion!</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <h3 id="login-heading1" >Ingresa tu identificador de sesion</h3>
-  <h3 id="login-heading1" >Si no la conoces, consulta tu ID al docente encargado</h3>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Identifica tu Sesion!</ion-title>
+    </ion-toolbar>
+  </ion-header>
   
-  <div class="spacer" style="width: 284.333px; height: 200px;"></div>
-  <label class="item item-input" id="page-input9">
-    <span class="input-label">
-      ID de Sesion
-    </span>
-    <input type="number" [(ngModel)]="session_id" placeholder="">
-    <button (click)="busqueda()" id="page-button8" class="boton">Buscar Session!</button>
-  </label>
-
-
-</ion-content>
+  <ion-content>
+    <div class="text">Ingresa tu identificador de sesion
+      Si no la conoces</div>
+      <br>
+      <div class="text">consulta tu ID al docente encargado</div>
+    <div class="spacer" style="width: 284.333px; height: 100px;"></div>
+    <label class="item item-input" id="page-input9">
+      <span class="input-label">
+        ID de Sesion
+      </span>
+      <input type="number" [(ngModel)]="session_id" placeholder="">
+      <button (click)="busqueda()" id="page-button8" class="boton">Buscar Session!</button>
+    </label>
+  
+  
+  </ion-content>
+  

@@ -27,127 +27,40 @@ export class LevelPlacerPage implements OnInit {
   {
     //Transcripcion
     this.conn.setSeleccion(1);
+    this.conn.seleccion = 1;
     this.changeLevel();
   }
   fone()
   {
     //Fonemas
     this.conn.setSeleccion(2);
+    this.conn.seleccion = 2;
     this.changeLevel();
   }
   grafe()
   {
     //Grafemas
     this.conn.setSeleccion(3);
+    this.conn.seleccion = 3;
     this.changeLevel();
   }
   sil()
   {
     //Silabas
     this.conn.setSeleccion(4);
+    this.conn.seleccion = 4;
     this.changeLevel();
   }
   letter()
   {
     //Letras
     this.conn.setSeleccion(5);
+    this.conn.seleccion = 5;
     this.changeLevel();
   }
   changeLevel()
   {
-    console.log(this.conn.getSeleccion());
+    // console.log(this.conn.getSeleccion());
     this.router.navigate(['/inner-level-placer']);
   }
-  getTutorial()
-  {
-    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
-    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 0 } );
-
-    let login = new Promise((resolve, reject) => {
-      this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
-      .toPromise()
-      .then(async (response) =>
-      {
-        let res = response[0];
-        await this.conn.presentLoading();
-        console.log(response);
-      })
-      .catch((error) =>
-      {
-        console.error('API Error : ', error.status);
-        console.error('API Error : ', JSON.stringify(error));
-        reject(error.json());
-      });
-    });
-  }
-
-  getLevel1()
-  {
-    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
-    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 1 } );
-
-    let login = new Promise((resolve, reject) => {
-      this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
-      .toPromise()
-      .then(async (response) =>
-      {
-        let res = response[0];
-        await this.conn.presentLoading();
-        console.log(response);
-      })
-      .catch((error) =>
-      {
-        console.error('API Error : ', error.status);
-        console.error('API Error : ', JSON.stringify(error));
-        reject(error.json());
-      });
-    });
-  }
-
-  getLevel2()
-  {
-    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
-    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 2 } );
-
-    let login = new Promise((resolve, reject) => {
-      this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
-      .toPromise()
-      .then(async (response) =>
-      {
-        let res = response[0];
-        await this.conn.presentLoading();
-        console.log(response);
-      })
-      .catch((error) =>
-      {
-        console.error('API Error : ', error.status);
-        console.error('API Error : ', JSON.stringify(error));
-        reject(error.json());
-      });
-    });
-  }
-
-  getLevel3()
-  {
-    this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
-    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 3 } );
-
-    let login = new Promise((resolve, reject) => {
-      this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
-      .toPromise()
-      .then(async (response) =>
-      {
-        let res = response[0];
-        await this.conn.presentLoading();
-        console.log(response);
-      })
-      .catch((error) =>
-      {
-        console.error('API Error : ', error.status);
-        console.error('API Error : ', JSON.stringify(error));
-        reject(error.json());
-      });
-    });
-  }
-
 }

@@ -237,22 +237,91 @@ export class InnerLevelPlacerPage implements OnInit
     if(lvl==0)
     {
       this.conn.holdExcercice(this.pack_level_t[ex]);
-      this.router.navigate(['/ex-fonetic-transcript']);
+      switch(this.conn.getSeleccion())
+      {
+        case 1:
+          this.router.navigate(['/ex-fonetic-transcript']);
+          break;
+        case 2:
+          this.router.navigate(['/fonetic']);
+          break;
+        case 3:
+          this.router.navigate(['/grafem']);
+          break;
+        case 4:
+          this.router.navigate(['/sil']);
+          break;
+        case 5:
+          this.router.navigate(['/let']);
+          break;
+      }    
+      
     }
     else if(lvl==1)
     {
       this.conn.holdExcercice(this.pack_level_1[ex]);
-      this.router.navigate(['/ex-fonetic-transcript']);
+      switch(this.conn.getSeleccion())
+      {
+        case 1:
+          this.router.navigate(['/ex-fonetic-transcript']);
+          break;
+        case 2:
+          this.router.navigate(['/fonetic']);
+          break;
+        case 3:
+          this.router.navigate(['/grafem']);
+          break;
+        case 4:
+          this.router.navigate(['/sil']);
+          break;
+        case 5:
+          this.router.navigate(['/let']);
+          break;
+      }    
     }
     else if(lvl==2)
     {
       this.conn.holdExcercice(this.pack_level_2[ex]);
-      this.router.navigate(['/ex-fonetic-transcript']);
+      switch(this.conn.getSeleccion())
+      {
+        case 1:
+          this.router.navigate(['/ex-fonetic-transcript']);
+          break;
+        case 2:
+          this.router.navigate(['/fonetic']);
+          break;
+        case 3:
+          this.router.navigate(['/grafem']);
+          break;
+        case 4:
+          this.router.navigate(['/sil']);
+          break;
+        case 5:
+          this.router.navigate(['/let']);
+          break;
+      }    
     }
     else if(lvl==3)
     {
       this.conn.holdExcercice(this.pack_level_3[ex]);
-      this.router.navigate(['/ex-fonetic-transcript']);
+      switch(this.conn.getSeleccion())
+      {
+        case 1:
+          this.router.navigate(['/ex-fonetic-transcript']);
+          break;
+        case 2:
+          this.router.navigate(['/fonetic']);
+          break;
+        case 3:
+          this.router.navigate(['/grafem']);
+          break;
+        case 4:
+          this.router.navigate(['/sil']);
+          break;
+        case 5:
+          this.router.navigate(['/let']);
+          break;
+      }    
     }
   }
 
@@ -264,7 +333,7 @@ export class InnerLevelPlacerPage implements OnInit
   getTutorial()
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
-    let datax=JSON.stringify( { SESION: this.conn.session, LEVEL: 0 } );
+    let datax=JSON.stringify( { SESION: this.conn.session, LEVEL: 0 ,SELECTION: this.conn.getSeleccion()} );
 
     let login = new Promise((resolve, reject) => {
       this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
@@ -290,7 +359,7 @@ export class InnerLevelPlacerPage implements OnInit
   getLevel1()
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
-    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 1 } );
+    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 1 ,SELECTION: this.conn.getSeleccion()} );
 
     let login = new Promise((resolve, reject) => {
       this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
@@ -301,6 +370,7 @@ export class InnerLevelPlacerPage implements OnInit
         for(var index in response)
         {
           this.pack_level_1.push(response[index].EJERCICIO_ID);
+          console.log("ex ->"+(response[index].EJERCICIO_ID));
         }
         await this.conn.presentLoading();
       })
@@ -316,7 +386,7 @@ export class InnerLevelPlacerPage implements OnInit
   getLevel2()
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
-    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 2 } );
+    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 2 ,SELECTION: this.conn.getSeleccion()} );
 
     let login = new Promise((resolve, reject) => {
       this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
@@ -327,6 +397,7 @@ export class InnerLevelPlacerPage implements OnInit
         for(var index in response)
         {
           this.pack_level_2.push(response[index].EJERCICIO_ID);
+          console.log("ex ->"+(response[index].EJERCICIO_ID));
         }
         await this.conn.presentLoading();
       })
@@ -340,7 +411,7 @@ export class InnerLevelPlacerPage implements OnInit
   getLevel3()
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
-    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 3 } );
+    let datax=JSON.stringify( { SESION: this.conn.getHoldedSession(), LEVEL: 3 ,SELECTION: this.conn.getSeleccion()} );
 
     let login = new Promise((resolve, reject) => {
       this.http.post(this.env.getUrl()+"ListadoEjercicios/getExcerciceSessionLevel", datax,{headers: this.requestHeaders})
@@ -351,6 +422,8 @@ export class InnerLevelPlacerPage implements OnInit
         for(var index in response)
         {
           this.pack_level_3.push(response[index].EJERCICIO_ID);
+          console.log("ex ->"+(response[index].EJERCICIO_ID));
+          
         }
         await this.conn.presentLoading();
       })

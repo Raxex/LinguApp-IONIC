@@ -25,7 +25,10 @@ export class LoginPage implements OnInit {
   user:any
   pass:any
   data:any
-
+  enrolar()
+  {
+    this.router.navigate(['/enroll']);
+  }
   login()
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');

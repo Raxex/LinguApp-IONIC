@@ -14,6 +14,10 @@ const routes: Routes = [
   { path: 'about',                  loadChildren: './about/about.module#AboutPageModule' },
   { path: 'inner-level-placer',     loadChildren: './inner-level-placer/inner-level-placer.module#InnerLevelPlacerPageModule' },
   { path: 'ex-fonetic-transcript',  loadChildren: './ex-fonetic-transcript/ex-fonetic-transcript.module#ExFoneticTranscriptPageModule' },
+  { path: 'fonetic', loadChildren: './fonetic/fonetic.module#FoneticPageModule' },
+  { path: 'grafem', loadChildren: './grafem/grafem.module#GrafemPageModule' },
+  { path: 'sil', loadChildren: './sil/sil.module#SilPageModule' },
+  { path: 'let', loadChildren: './let/let.module#LetPageModule' },
 ];
 
 @NgModule({

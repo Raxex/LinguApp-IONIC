@@ -1,5 +1,5 @@
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Component, OnInit } from '@angular/core';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { ConectorService } from '../conector.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
@@ -9,11 +9,12 @@ import { EnviromentService } from '../enviroment.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
-  selector: 'app-ex-fonetic-transcript',
-  templateUrl: './ex-fonetic-transcript.page.html',
-  styleUrls: ['./ex-fonetic-transcript.page.scss'],
+  selector: 'app-grafem',
+  templateUrl: './grafem.page.html',
+  styleUrls: ['./grafem.page.scss'],
 })
-export class ExFoneticTranscriptPage implements OnInit {
+export class GrafemPage implements OnInit {
+
   [x: string]: any;
   requestHeaders: HttpHeaders;
   session_id: string;
@@ -21,14 +22,20 @@ export class ExFoneticTranscriptPage implements OnInit {
   date_finish:any
   register:any
 
+  pack1s=[];
+  pack2s=[];
+  pack3s=[];
+  pack4s=[];
+  pack5s=[];
+  // Fonemas A grafemas
+  //abecedarios fonetico a abecedario comun
   constructor(public env:EnviromentService,public conn:ConectorService,public http:HttpClient,private router: Router,public toastController: ToastController)
   { 
     this.getKeyboard();
-    console.log(this.conn.getHoldedExcercice());
     this.getExcercice(this.conn.getHoldedExcercice());
     this.date_init = Date.now();
     
-    if(this.conn.register_id != undefined)
+    if(this.conn.register_id == undefined)
     {
       this.conn.addRegister(this.conn.user_id, this.conn.getHoldedSession(), this.conn.getHoldedExcercice());
     }
@@ -39,65 +46,9 @@ export class ExFoneticTranscriptPage implements OnInit {
   input:any
 
   gotten    = false;
-  stimulus  = "http://linguapp.cl/Pagina%20admin/uploads/chewie.mp3";
+  // stimulus  = "http://linguapp.cl/Pagina%20admin/uploads/chewie.mp3";
   answer:any   // respuesta
-
-  pack1s=[
-      // '../../assets/keyboard/3.png',
-      // '../../assets/keyboard/6volteado.png',
-      // '../../assets/keyboard/Dmayuscula.png',
-      // '../../assets/keyboard/OOO.png',
-      // '../../assets/keyboard/SS.png',
-      // '../../assets/keyboard/a.png',
-      // '../../assets/keyboard/b.png',
-      // '../../assets/keyboard/bmayuscula.png',
-      // '../../assets/keyboard/bt.png'
-  
-  ];
-  pack2s=[
-      // '../../assets/keyboard/d3.png',
-      // '../../assets/keyboard/d_.png',
-      // '../../assets/keyboard/e.png',
-      // '../../assets/keyboard/fotra.png',
-      // '../../assets/keyboard/g.png',
-      // '../../assets/keyboard/gj.png',
-      // '../../assets/keyboard/h.png',
-      // '../../assets/keyboard/i.png',
-      // '../../assets/keyboard/irara.png'
-  ];
-  pack3s=[
-      // '../../assets/keyboard/j.png',        
-      // '../../assets/keyboard/jn.png',       
-      // '../../assets/keyboard/k.png',        
-      // '../../assets/keyboard/kj.png',       
-      // '../../assets/keyboard/kmayuscula.png',
-      // '../../assets/keyboard/l.png',        
-      // '../../assets/keyboard/m.png',        
-      // '../../assets/keyboard/mj.png',       
-      // '../../assets/keyboard/n.png'         
-  ];
-  pack4s=[
-      // '../../assets/keyboard/n_.png',
-      // '../../assets/keyboard/n__.png',
-      // '../../assets/keyboard/nj.png',
-      // '../../assets/keyboard/nmayuscula.png',
-      // '../../assets/keyboard/o.png',
-      // '../../assets/keyboard/p.png',
-      // '../../assets/keyboard/pareceunajvolteada.png',
-      // '../../assets/keyboard/r.png',
-      // '../../assets/keyboard/rbota.png'
-  ];
-  pack5s=[
-      // '../../assets/keyboard/s.png',
-      // '../../assets/keyboard/t_.png',
-      // '../../assets/keyboard/tf.png',
-      // '../../assets/keyboard/u.png',
-      // '../../assets/keyboard/w.png',
-      // '../../assets/keyboard/x.png',
-      // '../../assets/keyboard/xj.png',
-      // '../../assets/keyboard/yt.png'
-  ];
-
+  exercice:any
   getKeyboard()
   {
     this.requestHeaders = new HttpHeaders().append('Content-Type', 'application/json').append('Accept', 'application/json');
@@ -186,7 +137,7 @@ export class ExFoneticTranscriptPage implements OnInit {
         else
         {
           console.log(this.env.file_url+data[0].ESTIMULO);
-          this.stimulus = (this.env.file_url+data[0].ESTIMULO);
+          this.stimulus = (data[0].ESTIMULO);
           this.answer   = data[0].RESPUESTA_CORRECTA;
           this.gotten = true;
         }
@@ -231,3 +182,5 @@ export class ExFoneticTranscriptPage implements OnInit {
 
  
 }
+
+
