@@ -4,14 +4,37 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding="true" class="has-header">
-  <div class="spacer" style="height: 100px;"></div>
-  <div id="transcripcionFonetica-container11" class="creator-container"></div>
-  <form id="transcripcionFonetica-form9" class="list">
-    <div class="spacer" style="height: 100px;"></div>
-    <label class="item item-input" id="transcripcionFonetica-input10">
-      <input type="text" placeholder="">
-    </label>
-  </form>
-  <button id="transcripcionFonetica-button72" style="border-radius:500px 500px 500px 500px;" class="button button-calm button-block">Apretame :x</button>
+<ion-content class="has-header">
+  <div class="spacer" style="width: 284.333px; height: 20px;"></div>
+  <div id="222555-button-bar8" class="ion-text-center" >
+<!-- 
+    <input value="{{stimulus}}" disabled style="border-radius:800px 800px 800px 800px;    -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+    box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);"> -->
+    
+  </div>
+  
+  <div class="spacer" style="width: 284.333px; height: 40px;"></div>
+
+  <div id="222555-container3">    
+    <div id="rcorners2" >
+      <div class="center" id="container">
+
+      </div>
+      
+    </div>
+
+  </div>
+
+
+  <div class="spacer" style="width: 284.333px; height: 20px;"></div>
+  <div id="222555-container6" class="creator-container">
+    <ion-input [(ngModel)]="imaginaryResponse" style="border-radius:800px 800px 800px 800px;    -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+    box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);"clearInput></ion-input>
+  </div>
+  <button id="buttonsHD" style="border-radius:800px 800px 800px 800px;     -webkit-box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);
+  box-shadow: 5px 5px 10px 1px rgba(7,7,7,0.69);" class="button button-calm button-block" (click)="sendResponse()">
+    Reponder
+  </button>
+
+
 </ion-content>

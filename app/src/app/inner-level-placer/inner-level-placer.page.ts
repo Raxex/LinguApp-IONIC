@@ -71,7 +71,11 @@ export class InnerLevelPlacerPage implements OnInit
  
   async getLastExcercice()
   {
+    this.getTutorial();
+    this.getLevel1();
     this.getLevel2();
+    this.getLevel3();
+    
     await this.conn.presentLoading();
     console.log("he capturado "+this.pack_level_t.length+" ejercicios de tutorial");
     switch(this.pack_level_t.length)
