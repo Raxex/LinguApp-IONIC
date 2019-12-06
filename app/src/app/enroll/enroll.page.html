@@ -13,29 +13,29 @@
       <ion-list id="enroll-list2">
         <label class="item item-input" id="enroll-input8">
           <span class="input-label">Rut</span>
-          <input type="text" placeholder="">
+          <input [(ngModel)]="rut" [ngModelOptions]="{standalone: true}" type="text" placeholder="">
         </label>
         <label class="item item-input" id="enroll-input3">
           <span class="input-label">Nombre</span>
-          <input type="text" placeholder="">
+          <input [(ngModel)]="name" [ngModelOptions]="{standalone: true}" type="text" placeholder="">
         </label>
         <label class="item item-input" id="enroll-input4">
           <span class="input-label">Apellido</span>
-          <input type="text" placeholder="">
+          <input [(ngModel)]="sur_name" [ngModelOptions]="{standalone: true}" type="text" placeholder="">
         </label>
         <label class="item item-input" id="enroll-input6">
           <span class="input-label">Correo</span>
-          <input type="email" placeholder="">
+          <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email" placeholder="">
         </label>
         <label class="item item-input" id="enroll-input5">
           <span class="input-label">Contraseña</span>
-          <input type="password" placeholder="">
+          <input [(ngModel)]="pass" [ngModelOptions]="{standalone: true}" type="password" placeholder="">
         </label>
       </ion-list>
       <label class="item item-input" id="enroll-input7">
         <span class="input-label">Verificar Contraseña</span>
-        <input type="password" placeholder="">
+        <input [(ngModel)]="v_pass" [ngModelOptions]="{standalone: true}" type="password" placeholder="">
       </label>
     </form>
-    <button id="enroll-button17" class="button button-positive button-block">Enviar</button>
+    <button (click)="do_enroll()"id="enroll-button17" class="button button-positive button-block">Enviar</button>
   </ion-content>
