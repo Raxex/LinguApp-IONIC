@@ -65,9 +65,9 @@ export class LoginPage implements OnInit {
       })
       .catch((error) =>
       {
-        console.error('API Error : ', error.status);
-        console.error('API Error : ', JSON.stringify(error));
-        reject(error.json());
+        // console.error('API Error : ', error.status);
+        // console.error('API Error : ', JSON.stringify(error));
+        this.conn.presentToast("hubo un error con la conexion a la API",2);
       });
     });
   }
