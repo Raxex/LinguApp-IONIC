@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 export class EnviromentService
 {
 
-  public url = "http://linguapp.cl/APIConnect/api/";
+  public url = "https://linguapp.cl/APIConnect/api/";
 
-  public file_url = "http://www.linguapp.cl/Pagina%20admin/";
+  public file_url = "https://www.linguapp.cl/Pagina%20admin/";
   constructor()
   { 
 
