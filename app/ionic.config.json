@@ -1,7 +1,8 @@
 {
   "name": "Linguapp",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
